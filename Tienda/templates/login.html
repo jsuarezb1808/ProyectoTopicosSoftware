@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>SumEye</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,11 +19,11 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
             text-align: center;
         }
         .container h2 {
             margin-bottom: 20px;
-            color: #ff7f50;
         }
         .container form {
             display: flex;
@@ -65,6 +67,7 @@
             {{ form.as_p }}
             <button type="submit">Iniciar sesión</button>
         </form>
+        <p>¿No tienes una cuenta? <a href="{% url 'register' %}">Regístrate aquí</a></p>
     </div>
 </body>
 </html>
