@@ -25,5 +25,10 @@ def updateProduct(view):
     def get(self,request):
         pass
 
+#handles the process to add on a whislist a product 
+def wishlistProduct():
+    def post(self,request):
+        pass
+    
     
 
