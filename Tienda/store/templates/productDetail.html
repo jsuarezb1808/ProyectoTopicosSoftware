@@ -1,0 +1,11 @@
+{%extends 'base.html'%}
+{%block content%}
+<div class="product">
+  <h2>{{product.ItemName}}</h2>
+  <p>{{product.ItemCategory}}</p>
+  <p>{{product.Price}}</p>
+  <form method="post" action="{% url 'store:addToCart' id=products.ItemId%}">>
+    {% csrf_token %}
+    <button type="submit">añadir al carrito</button>
+</div>
+{%endblock%}

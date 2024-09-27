@@ -1,0 +1,14 @@
+{%extends 'base.html'%}
+    {%block content%}
+        {% for product in Gafas %}
+
+            <div class="products">
+                  <h2><a href="{% url 'store:viewDetailProduct' id=products.ItemId%}"></a>{{product.ItemName}}</a> </h2>
+                <p>{{product.ItemCategory}}</p>
+            </div>
+          -------------
+        {% endfor %}</td>
+        {% csrf_token %}
+        <button type="submit" name="logout">new Task</button>
+    </form>
+    {%endblock%}
