@@ -21,6 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     #created apps urls
-    path('',include('store.urls')),
+    #handles product creation
+    path('store/',include('store.urls')),
+    #handles user Login Info
     path('users/',include('users.urls'))
 ]

@@ -1,11 +1,7 @@
+from django import forms
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import gafas
-
-class ProductForm(forms.ModelForm):
-    class Meta:
-        model = gafas
-        fields = ['Nombre Item', 'Categoria Item','Precio']
 
 #handles new product creation
 def newProduct(View):
@@ -14,7 +10,18 @@ def newProduct(View):
     def post(self,request):
         pass
 
+#handles view of products
 def viewProduct(view):
+    def get(self,request):
+        pass
+
+#handles production deletion
+def deleteProduct(view):
+    def get(self,request):
+        pass
+
+#handles update of a product
+def updateProduct(view):
     def get(self,request):
         pass
 
