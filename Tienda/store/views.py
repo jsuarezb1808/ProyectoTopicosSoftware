@@ -3,24 +3,24 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import gafas
 
-#handles new product creation
+#handles creation of new products 
 def newProduct(View):
     def get(self,request):
         pass
     def post(self,request):
         pass
 
-#handles view of products
+#handles view of individual products
 def viewProduct(view):
     def get(self,request):
         pass
 
-#handles production deletion
+#handles deletion of new products
 def deleteProduct(view):
     def get(self,request):
         pass
 
-#handles update of a product
+#handles updates of products
 def updateProduct(view):
     def get(self,request):
         pass
