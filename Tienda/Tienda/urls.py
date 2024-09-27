@@ -23,6 +23,6 @@ urlpatterns = [
     #created apps urls
     #handles product creation
     path('store/',include('store.urls')),
-    #handles user Login Info
+    path('', include('store.urls')),
     path('users/',include('users.urls'))
 ]

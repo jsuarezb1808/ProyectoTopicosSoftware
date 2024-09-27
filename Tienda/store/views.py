@@ -26,4 +26,8 @@ def updateProduct(view):
         pass
 
     
+def index(request):
+    return render(request, 'index.html')
+
+    
 
