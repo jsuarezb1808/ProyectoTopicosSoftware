@@ -4,6 +4,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from .models import gafas
+from store.models import Wishlist 
 from users.forms import UserRegisterForm 
 
 

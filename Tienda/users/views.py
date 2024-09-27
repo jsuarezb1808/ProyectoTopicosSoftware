@@ -7,6 +7,10 @@ from .models import  user
 from .forms import UserRegisterForm
 from django.contrib.auth import login, authenticate 
 from django.contrib import messages
+from store.models import Wishlist
+from django.contrib.auth.decorators import login_required
+from .forms import UserRegisterForm
+
 
 
 
@@ -34,15 +38,28 @@ def user_login(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('index')
+                if 'next' in request.POST:
+                    return redirect(request.POST.get('next'))
+                else:
+                    return redirect('index')
+            else:
+                messages.error(request, 'Credenciales inválidas.')
+        else:
+            messages.error(request, 'Error en el formulario.')
     else:
         form = AuthenticationForm()
-    return render(request, 'login.html', {'form': form, "title": "SumEye"})
+    return render(request, 'login.html', {'form': form, 'title': 'SumEye'})
+
+
+@login_required
+def wishlist_view(request):
+    user_wishlist = Wishlist.objects.filter(User=request.user).first()
+    return render(request, 'wishlist.html', {'wishlist': user_wishlist})
+
 def login_view(request):
     if request.method=='POST':
         form=AuthenticationForm(data=request.POST)
         if form.is_valid():
-            #user is logged
             user=form.get_user()
             login(request,user)
             if 'next' in request.POST:
@@ -58,3 +75,4 @@ def logout_view(request):
     if (request.method=='POST'):
         logout(request)
         return redirect('users:login')
+    

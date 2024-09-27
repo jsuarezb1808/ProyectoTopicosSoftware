@@ -23,6 +23,7 @@ urlpatterns = [
     path('store/',include('store.urls')),
     path('users/',include('users.urls')),
     path('register/', user_views.register, name='register'),
+    path('wishlist/', user_views.wishlist_view, name='wishlist'),
     path('login/', user_views.user_login, name='login'),
     path('', user_views.user_login, name='index'),
 ]
