@@ -4,23 +4,40 @@ from django.contrib.auth import login,logout
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 #local
 from .models import  user
+from .forms import UserRegisterForm
+from django.contrib.auth import login, authenticate 
+from django.contrib import messages
+
 
 
 def register(request):
-    #this creates a new user using the data from the folder
-    if request.method=='POST':
-        form=UserCreationForm(request.POST)
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
         if form.is_valid():
-            user=form.save()
-            #the user is logged
-            login(request,user)
-            #if user is logged in redirects to:
-            return redirect('tasks:home')
-    #this creates a new form to be displayed
+            form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            messages.success(request, f'Usuario {username} creado exitosamente.')
+            return redirect('index')
     else:
-        form=UserCreationForm()
-    return render(request,'users/register.html',{'form':form})
+        form = UserRegisterForm()
+    return render(request, 'register.html', {'form': form})
 
+def user_login(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('index')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'login.html', {'form': form, "title": "SumEye"})
 def login_view(request):
     if request.method=='POST':
         form=AuthenticationForm(data=request.POST)
