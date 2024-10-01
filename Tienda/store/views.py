@@ -2,19 +2,19 @@ from django import forms
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from .models import gafas
-from .forms import bodega,CreateProducts
+from . import forms
 
 home='store:view'
 #handles creation of new products 
 def newProduct(View):
     def post(self,request):
-        form=forms.CreateTask(request.POST)
+        form=forms.CreateProducts(request.POST)
         if form.is_valid():
             instance=form.save(commit=False)
             instance.save()
             return redirect(home)
         else:
-            form=CreateProducts()
+            form=forms.CreateProducts()
         return render(request,'store/newProduct.html',{'form':form})
 
 #handles view of individual products
@@ -28,9 +28,10 @@ def detailProduct(request,id):
         product=gafas.objects.get(ItemId=id)
         return render (request,'store/productDetail.html',{'product':product})
 
-def purchaseProduct(request):
-    def post(request):
-        pass
+def purchaseProduct(request,id):
+    def post(self,request,id):
+        product=gafas.objects.get(ItemId=id)
+        
 
 #handles deletion of new products
 def deleteProduct(view):
