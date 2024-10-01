@@ -5,14 +5,14 @@ class gafas(models.Model):
     ItemId=models.BigAutoField(primary_key=True)
     ItemName=models.TextField(max_length=255)
     ItemCategory=models.TextField(max_length=255)
-    Price=models.IntegerField   
+    Price=models.IntegerField()
 
 
 class bodega(models.Model):
     ItemId=models.ManyToManyField(gafas, related_name="bodega_gafas")
     BodegaID=models.BigAutoField(primary_key=True)
     location=models.TextField(max_length=100)
-    ItemStock=models.IntegerField
+    ItemStock=models.IntegerField()
 
 
 class wishlist(models.Model):
@@ -20,7 +20,7 @@ class wishlist(models.Model):
     User=models.ForeignKey(
         User,
         on_delete=models.CASCADE)
-    ItemsId=models.ManyToManyField(gafas , related_name="whislist_gafas")
+    ItemsId=models.ManyToManyField(gafas , related_name="wishlist_gafas")
 
 
 class Order(models.Model):
