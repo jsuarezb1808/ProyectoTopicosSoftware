@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns=[
     re_path('^new/$',views.newProduct,name='newProduct'),
-    re_path('^view/$',views.viewProduct,name='viewProduct'),
+    re_path('/',views.viewProduct,name='viewProduct'),
     re_path('^view/<int:id>$',views.detailProduct,name='viewDetailProduct'),
     re_path('^delete/<int:id>$',views.deleteProduct,name='deleteProduct'),
     re_path('^update/<int:id>$',views.updateProduct,name='updateProduct'),
