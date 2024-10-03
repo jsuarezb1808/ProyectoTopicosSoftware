@@ -20,6 +20,14 @@ from users import views as user_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
     path('/',include('store.urls')),
     path('users/',include('users.urls')),
+=======
+    path('',include('store.urls')),
+    path('users/',include('users.urls')),
+#    path('register/', user_views.register, name='register'),
+#    path('login/', user_views.user_login, name='login'),
+#    path('', user_views.user_login, name='index'),
+>>>>>>> b0029bc8f25545da131d03daf0a21613ee7d2e0d
 ]

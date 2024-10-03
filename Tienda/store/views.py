@@ -7,6 +7,9 @@ from . import forms
 home='store:view'
 #handles creation of new products 
 def newProduct(View):
+    def get(request):
+        form=forms.CreateProducts()
+        return render(request,'store/newProduct.html',{'form':form})
     def post(self,request):
         form=forms.CreateProducts(request.POST)
         if form.is_valid():
