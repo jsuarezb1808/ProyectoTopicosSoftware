@@ -20,7 +20,7 @@ def register(request):
             user = authenticate(username=username, password=password)
             login(request, user)
             messages.success(request, f'Usuario {username} creado exitosamente.')
-            return redirect('index')
+            return redirect('users:login')
     else:
         form = UserRegisterForm()
     return render(request, 'register.html', {'form': form})
@@ -34,7 +34,7 @@ def user_login(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('index')
+                return redirect('store:viewProduct')
     else:
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form, "title": "SumEye"})
