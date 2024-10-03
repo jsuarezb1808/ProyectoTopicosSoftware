@@ -51,5 +51,8 @@ def wishlistProduct():
     def post(self,request):
         pass
 
+def purchaseProduct():
+    pass
+
 
 
