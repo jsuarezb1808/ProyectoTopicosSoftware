@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .models import gafas
 from . import forms
 
+
 home='store:view'
 #handles creation of new products 
 def newProduct(View):
@@ -22,9 +23,12 @@ def newProduct(View):
 
 #handles view of individual products
 def viewProduct(request):
-    def get(request):
+    if request.method == "GET":
         Gafas=gafas
-        return render(request,'store/viewProduct.html',Gafas)
+        return render(request,'store:viewProduct.html',Gafas)
+    else:
+        pass
+    return render(request,'store:viewProduct.html')
 
 def detailProduct(request,id):
     def get(request):
@@ -53,6 +57,12 @@ def wishlistProduct():
 
 def purchaseProduct():
     pass
+
+def cart(request):
+    return render(request, 'store:cart.html')
+
+def transactionPanel(request):
+    return render(request, 'store:transaction.html')
 
 
 

@@ -10,5 +10,8 @@ urlpatterns=[
     re_path('^update/<int:id>$',views.updateProduct,name='updateProduct'),
     re_path('^whishlist/<int:id>$',views.wishlistProduct,name='wishlistProduct'),
     re_path('^addToCart/<int:id>$',views.purchaseProduct,name='addToCart'),
+    re_path('cart/', views.cart, name='cart'),
+    re_path('transaction/', views.transactionPanel, name='transactionPanel'),
+
 
 ]
