@@ -1,14 +1,15 @@
 {%extends 'base.html'%}
     {%block content%}
+    <div class="products"></div>
         {% for product in Gafas %}
 
-            <div class="products">
-                  <h2><a href="{% url 'store:viewDetailProduct' id=products.ItemId%}"></a>{{product.ItemName}}</a> </h2>
+              <div>
+                <h2><a href="{% url 'store:viewDetailProduct' id=products.ItemId%}"></a>{{product.ItemName}}</a> </h2>
                 <p>{{product.ItemCategory}}</p>
-            </div>
+              </div>
           -------------
         {% endfor %}</td>
+      </div>
         {% csrf_token %}
-        <button type="submit" name="logout">log out</button>
     </form>
     {%endblock%}

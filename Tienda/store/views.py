@@ -22,7 +22,7 @@ def newProduct(request):
 #handles view of individual products
 def viewProducts(request):
     if request.method == "GET":
-        Gafas=gafas
+        Gafas=gafas.objects.get()
         return render(request,'viewProduct.html',{'gafas':Gafas})
     else:
         pass
