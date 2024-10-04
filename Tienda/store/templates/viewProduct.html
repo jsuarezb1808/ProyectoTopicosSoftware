@@ -1,14 +1,7 @@
 {%extends 'base.html'%}
     {%block content%}
     <div class="products"></div>
-        {% for product in Gafas %}
 
-              <div>
-                <h2><a href="{% url 'store:viewDetailProduct' id=products.ItemId%}"></a>{{product.ItemName}}</a> </h2>
-                <p>{{product.ItemCategory}}</p>
-              </div>
-          -------------
-        {% endfor %}</td>
       </div>
         {% csrf_token %}
     </form>

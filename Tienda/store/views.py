@@ -24,7 +24,7 @@ def newProduct(request):
 
 #handles view of individual products
 
-def viewProduct(request):
+def viewProducts(request):
     if request.method == "GET":
         Gafas=gafas
         return render(request,'store:viewProduct.html',Gafas)
@@ -34,7 +34,7 @@ def viewProduct(request):
 
 def viewProducts(request):
     if request.method == "GET":
-        Gafas=gafas.objects.get()
+        Gafas=gafas.objects.all()
         return render(request,'viewProduct.html',{'gafas':Gafas})
     else:
         pass

@@ -1,36 +1,78 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <div class="wrapper">
-      <h1>VentaDeLentes</h1>
-      <nav>
-        <ul>
-          <!-- go to the tasks board -->
-          <li> <a href="{% url 'store:viewProducts'%}">volver a la tienda</a> </li>
-          <!-- logout button -->
-          {% if user.is_authenticated %}
-          <li> <form class="logoutLink" action="{%url 'users:logout'%}" method="post">
-              {%csrf_token%}
-              <button type="submit" name="logout">logout</button>
-            </form>
-          </li>
-          {%else%}
-          <li> <form class="register" action="{%url 'users:register'%}" method="post">
-              {%csrf_token%}
-              <button type="submit" name="logout">register</button>
-              </form>
-          </li>
 
-          {%endif%}
-</button>
-</li>
-        </ul>
-      </nav>
-      {%block content%}
-      {%endblock%}
-  </body>
+<head>
+    <meta charset="utf-8">
+    <title>Venta de lentes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .container h2 {
+            margin-bottom: 20px;
+            color: #ff7f50;
+        }
+
+        .container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container form input {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .container form button {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #ff7f50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .container form button:hover {
+            background-color: #ff4500;
+        }
+
+        .register-link {
+            margin-top: 20px;
+        }
+
+        .register-link a {
+            color: #ff7f50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .register-link a:hover {
+            color: #ff4500;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>store</h1>
+    {% block content %}
+    {% endblock %}
+</body>
+
 </html>
