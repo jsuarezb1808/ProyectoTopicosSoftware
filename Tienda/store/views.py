@@ -7,6 +7,9 @@ from .models import gafas
 from . import forms
 
 
+
+home='store:view'
+
 #handles creation of new products 
 def newProduct(request):
     if request.method == "POST":
@@ -20,6 +23,15 @@ def newProduct(request):
 
 
 #handles view of individual products
+
+def viewProduct(request):
+    if request.method == "GET":
+        Gafas=gafas
+        return render(request,'store:viewProduct.html',Gafas)
+    else:
+        pass
+    return render(request,'store:viewProduct.html')
+
 def viewProducts(request):
     if request.method == "GET":
         Gafas=gafas.objects.get()
@@ -27,6 +39,7 @@ def viewProducts(request):
     else:
         pass
     return render(request,'viewProduct.html',{"Gafas":gafas})
+
 
 
 def detailProduct(request,id):
@@ -71,6 +84,12 @@ def wishlistProduct(request, id):
  
 def purchaseProduct():
     pass
+
+def cart(request):
+    return render(request, 'store:cart.html')
+
+def transactionPanel(request):
+    return render(request, 'store:transaction.html')
 
 
 
