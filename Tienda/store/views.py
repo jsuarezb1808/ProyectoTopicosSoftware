@@ -73,14 +73,7 @@ def purchaseProduct(request,id):
 
 #handles the process to add on a whislist a product 
 def wishlistProduct(request, id):
-    product = get_object_or_404(gafas, ItemId=id)
-   
-    user_wishlist, created = wishlist.objects.get_or_create(User=request.user)
-   
-    if product not in user_wishlist.ItemsId.all():
-        user_wishlist.ItemsId.add(product)
- 
-    return redirect('store:productDetail', id=id)
+    pass
  
 def purchaseProduct():
     pass
