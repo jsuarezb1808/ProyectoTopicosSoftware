@@ -6,11 +6,11 @@
   </head>
   <body>
     <div class="wrapper">
-      <h1>kanban</h1>
+      <h1>VentaDeLentes</h1>
       <nav>
         <ul>
           <!-- go to the tasks board -->
-          <li> <a href="{% url 'tasks:home'%}">back to board</a> </li>
+          <li> <a href="{% url 'store:viewProducts'%}">volver a la tienda</a> </li>
           <!-- logout button -->
           {% if user.is_authenticated %}
           <li> <form class="logoutLink" action="{%url 'users:logout'%}" method="post">
